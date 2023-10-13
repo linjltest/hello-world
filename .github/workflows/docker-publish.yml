@@ -1,0 +1,22 @@
+name: Build and Run Docker Image
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v3
+
+    - name: Build and Run Docker Image
+      run: |
+        # 构建镜像
+        docker image build -t hello-world .
+
+        # 运行容器
+        # docker container run -p 8000:3000 -it hello-world
